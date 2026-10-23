@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "installed": {
+    "llama-cpp": {
+      "source": "official",
+      "identifier": "official/mlops/inference/llama-cpp",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:43a4ec8fb07acce8",
+      "install_path": "mlops/inference/llama-cpp",
+      "files": [
+        "SKILL.md",
+        "references/advanced-usage.md",
+        "references/hub-discovery.md",
+        "references/optimization.md",
+        "references/quantization.md",
+        "references/server.md",
+        "references/troubleshooting.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-10-10T08:55:11.047427+00:00",
+      "updated_at": "2026-10-10T08:55:11.047427+00:00"
+    },
+    "dspy": {
+      "source": "official",
+      "identifier": "official/mlops/research/dspy",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:bbbe1148d27953a8",
+      "install_path": "mlops/research/dspy",
+      "files": [
+        "SKILL.md",
+        "references/examples.md",
+        "references/modules.md",
+        "references/optimizers.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-10-10T08:55:11.052663+00:00",
+      "updated_at": "2026-10-10T08:55:11.052663+00:00"
+    },
+    "agent-browser": {
+      "source": "skills.sh",
+      "identifier": "skills-sh/vercel-labs/agent-browser/agent-browser",
+      "trust_level": "community",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:d7d2d096922191df",
+      "install_path": "agent-browser",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "source_url": "https://github.com/vercel-labs/agent-browser/tree/d9570915f4dd6504dee4070379d2c4f79d81dbb2/skills/agent-browser",
+        "source_revision": "d9570915f4dd6504dee4070379d2c4f79d81dbb2"
+      },
+      "scan_provenance": {
+        "bundle_hash": "sha256:d7d2d096922191df17d77f7d7fb88c002c880daa172a9039060099842cb9ed15",
+        "scanner_version": "skills-guard-v9",
+        "source": "skills-sh/vercel-labs/agent-browser/agent-browser",
+        "source_url": "https://github.com/vercel-labs/agent-browser/tree/d9570915f4dd6504dee4070379d2c4f79d81dbb2/skills/agent-browser",
+        "verdict": "safe",
+        "trust_level": "community",
+        "findings": [
+          {
+            "pattern_id": "allowed_tools_field",
+            "severity": "low",
+            "category": "privilege_escalation",
+            "file": "SKILL.md",
+            "line": 4,
+            "match": "allowed-tools: Bash(agent-browser:*), Bash(npx agent-browser:*)",
+            "description": "skill declares allowed-tools (standard frontmatter; informational)"
+          }
+        ],
+        "rules": [
+          "allowed_tools_field"
+        ],
+        "scanned_at": "2026-10-11T06:56:18.275646+00:00",
+        "summary": "agent-browser: safe — 1 finding(s) in privilege_escalation",
+        "fresh": true
+      },
+      "installed_at": "2026-10-11T06:56:18.290306+00:00",
+      "updated_at": "2026-10-11T06:56:18.290306+00:00"
+    },
+    "agent-email-cli": {
+      "source": "skills.sh",
+      "identifier": "skills-sh/zaddy6/agent-email-skill/agent-email-cli",
+      "trust_level": "community",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:500dcc08777a6b92",
+      "install_path": "agent-email-cli",
+      "files": [
+        "SKILL.md",
+        "agents/openai.yaml",
+        "references/commands.md"
+      ],
+      "metadata": {
+        "source_url": "https://github.com/zaddy6/agent-email-skill/tree/e878868c83ecc5f520a027d2b5364282cb8a7f62/skills/agent-email-cli",
+        "source_revision": "e878868c83ecc5f520a027d2b5364282cb8a7f62"
+      },
+      "scan_provenance": {
+        "bundle_hash": "sha256:500dcc08777a6b9231916537b41e6209bc6b215aef0c79585be9c139201fa5b9",
+        "scanner_version": "skills-guard-v9",
+        "source": "skills-sh/zaddy6/agent-email-skill/agent-email-cli",
+        "source_url": "https://github.com/zaddy6/agent-email-skill/tree/e878868c83ecc5f520a027d2b5364282cb8a7f62/skills/agent-email-cli",
+        "verdict": "safe",
+        "trust_level": "community",
+        "findings": [
+          {
+            "pattern_id": "unpinned_npm_install",
+            "severity": "medium",
+            "category": "supply_chain",
+            "file": "SKILL.md",
+            "line": 26,
+            "match": "npm install -g @zaddy6/agentemail",
+            "description": "npm install without version pinning"
+          }
+        ],
+        "rules": [
+          "unpinned_npm_install"
+        ],
+        "scanned_at": "2026-10-11T06:56:26.651775+00:00",
+        "summary": "agent-email-cli: safe — 1 finding(s) in supply_chain",
+        "fresh": true
+      },
+      "installed_at": "2026-10-11T06:56:26.660445+00:00",
+      "updated_at": "2026-10-11T06:56:26.660445+00:00"
+    }
+  }
+}

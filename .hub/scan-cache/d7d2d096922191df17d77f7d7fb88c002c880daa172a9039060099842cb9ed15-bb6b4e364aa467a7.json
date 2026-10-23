@@ -1,0 +1,25 @@
+{
+  "bundle_hash": "sha256:d7d2d096922191df17d77f7d7fb88c002c880daa172a9039060099842cb9ed15",
+  "scanner_version": "skills-guard-v9",
+  "source": "skills-sh/vercel-labs/agent-browser/agent-browser",
+  "source_url": "https://github.com/vercel-labs/agent-browser/tree/d9570915f4dd6504dee4070379d2c4f79d81dbb2/skills/agent-browser",
+  "verdict": "safe",
+  "trust_level": "community",
+  "findings": [
+    {
+      "pattern_id": "allowed_tools_field",
+      "severity": "low",
+      "category": "privilege_escalation",
+      "file": "SKILL.md",
+      "line": 4,
+      "match": "allowed-tools: Bash(agent-browser:*), Bash(npx agent-browser:*)",
+      "description": "skill declares allowed-tools (standard frontmatter; informational)"
+    }
+  ],
+  "rules": [
+    "allowed_tools_field"
+  ],
+  "scanned_at": "2026-10-11T06:56:18.275646+00:00",
+  "summary": "agent-browser: safe \u2014 1 finding(s) in privilege_escalation",
+  "fresh": true
+}

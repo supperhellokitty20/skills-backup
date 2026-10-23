@@ -1,0 +1,4 @@
+interface:
+  display_name: "Patchstack WordPress Auditor"
+  short_description: "Audit WordPress plugins for Patchstack reports"
+  default_prompt: "Use $patchstack-wordpress-auditor to extract and audit a WordPress plugin for a Patchstack vulnerability report."

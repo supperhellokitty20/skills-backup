@@ -1,0 +1,25 @@
+{
+  "bundle_hash": "sha256:500dcc08777a6b9231916537b41e6209bc6b215aef0c79585be9c139201fa5b9",
+  "scanner_version": "skills-guard-v9",
+  "source": "skills-sh/zaddy6/agent-email-skill/agent-email-cli",
+  "source_url": "https://github.com/zaddy6/agent-email-skill/tree/e878868c83ecc5f520a027d2b5364282cb8a7f62/skills/agent-email-cli",
+  "verdict": "safe",
+  "trust_level": "community",
+  "findings": [
+    {
+      "pattern_id": "unpinned_npm_install",
+      "severity": "medium",
+      "category": "supply_chain",
+      "file": "SKILL.md",
+      "line": 26,
+      "match": "npm install -g @zaddy6/agentemail",
+      "description": "npm install without version pinning"
+    }
+  ],
+  "rules": [
+    "unpinned_npm_install"
+  ],
+  "scanned_at": "2026-10-11T06:56:26.651775+00:00",
+  "summary": "agent-email-cli: safe \u2014 1 finding(s) in supply_chain",
+  "fresh": true
+}

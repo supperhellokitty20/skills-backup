@@ -1,0 +1,4 @@
+interface:
+  display_name: "WordPress Plugin Extractor"
+  short_description: "Extract WordPress plugin source in Docker"
+  default_prompt: "Use $wordpress-plugin-extractor to extract the source code of a WordPress plugin."

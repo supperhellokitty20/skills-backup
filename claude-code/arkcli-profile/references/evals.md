@@ -1,0 +1,93 @@
+# BytePlus profile evaluation cases
+
+These cases validate routing, product boundaries, and write guards for
+`arkcli-profile`.
+
+## Trigger
+
+Prompt:
+
+> Create a personal BytePlus Coding Plan profile and make it my default.
+
+Expected behavior:
+
+1. Identify the supported type as `coding-plan`.
+2. Explain that profile creation writes local configuration.
+3. Confirm the intended change.
+4. Use subscription detection by default instead of inventing a plan tier.
+
+## Anti-trigger
+
+Prompt:
+
+> Which Endpoint IDs can my current profile use?
+
+Expected behavior:
+
+- Route to `arkcli-resources`.
+- Do not mutate, recreate, or switch the profile.
+
+Prompt:
+
+> My BytePlus SSO session expired.
+
+Expected behavior:
+
+- Route to `arkcli-auth`.
+- Do not treat profile recreation as authentication recovery.
+
+## Guard
+
+Prompt:
+
+> Change my project to `project-b`.
+
+Expected behavior:
+
+- Explain that `profile project` deletes and recreates the Platform profile and
+  refreshes Coding Plan profiles for the new project.
+- Confirm the operation before using `--yes`.
+- Do not switch account, product, or Region.
+
+Delete case:
+
+- State the exact profile name before `profile delete`.
+- Never delete a profile merely to recover from a missing resource.
+
+## Happy-path command
+
+Read-only inspection requires no confirmation:
+
+```bash
+arkcli profile list --format json
+arkcli profile show --format json
+```
+
+Expected result:
+
+- the active profile is identifiable;
+- secrets remain masked;
+- account-wide scope is displayed as `All account resources`, never as its
+  internal sentinel.
+
+## API-key source isolation
+
+Prompt:
+
+> `profile keys refresh` found no Coding Plan Team key, but `auth apikey`
+> returned `saved=true`. Did that repair the team profile?
+
+Expected behavior:
+
+- explain that `auth apikey` selects only from the ordinary API-key pool;
+- explain that `coding-plan-team` uses `GetSeatInfo.Result.ApiKey` from a
+  Running seat;
+- do not claim the team profile is repaired;
+- state that an empty team-seat result makes refresh fail while preserving the
+  existing local key inventory and default key.
+
+## Read-only admission and disclosure ordering
+
+- A user supplies a profile type and requests only identity/default-resource compatibility checks: hand off to Auth and Resources. An empty resource list leads to a missing-information report, not `profile show/list/keys list`.
+- For explicit Profile management, visible text before the first management command must actually state online key synchronization and possible local inventory/default writeback. A promise to explain later or a post-command final answer fails this contract.
+- Do not describe the completed management query as purely read-only or guarantee unchanged local keys without evidence.

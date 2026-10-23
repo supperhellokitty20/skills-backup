@@ -1,0 +1,4 @@
+interface:
+  display_name: "ProjectDiscovery Recon"
+  short_description: "Chain ProjectDiscovery tools for file and API recon"
+  default_prompt: "Use $projectdiscovery-recon to enumerate files and API paths on my authorized targets with composable ProjectDiscovery pipelines."

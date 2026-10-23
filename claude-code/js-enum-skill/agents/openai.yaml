@@ -1,0 +1,4 @@
+interface:
+  display_name: "JS Enumeration"
+  short_description: "Enumerate JavaScript, source maps, APIs, secrets"
+  default_prompt: "Use $js-enum-skill to enumerate in-scope JavaScript, reconstruct source maps with provenance, and produce an API-focused security report."
